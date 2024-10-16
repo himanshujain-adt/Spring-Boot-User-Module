@@ -67,4 +67,9 @@ public class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>> impleme
 		return baseDao.search(dto, pageNo, pageSize);
 	}
 
+	@Override
+	public T findByRollNo(Long rollNo) { // TODO Auto-generated method
+		return baseDao.findByRollNo(rollNo);
+	}
+
 }

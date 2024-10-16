@@ -3,7 +3,6 @@ package co.alpha.common;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class ORSResponse {
 
 	public static final String INPUT_ERROR = "inputerror";
@@ -47,7 +46,7 @@ public class ORSResponse {
 	}
 
 	public void addData(Object value) {
-		result.put(MESSAGE, value);
+		result.put(DATA, value);
 	}
 
 	public void addResult(String key, Object value) {

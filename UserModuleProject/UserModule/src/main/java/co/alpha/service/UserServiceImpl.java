@@ -10,5 +10,5 @@ import co.alpha.dto.UserDTO;
 @Service
 @Transactional
 public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implements UserServiceInt {
-
+	
 }

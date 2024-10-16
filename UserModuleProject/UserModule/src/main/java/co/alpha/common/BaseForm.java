@@ -19,7 +19,7 @@ public class BaseForm {
 		if (id != null && id > 0) {
 			dto.setId(id);
 		} else {
-			dto.setId(0);
+			dto.setId(null);
 
 		}
 		return dto;

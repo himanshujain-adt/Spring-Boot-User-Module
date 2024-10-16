@@ -29,4 +29,7 @@ public class UserDTO extends BaseDTO {
 	@Column(name = "PASSWORD", length = 20)
 	private String password = null;
 
+	@Column(name = "Roll_NO", length = 20)
+	private Long rollNo;
+
 }

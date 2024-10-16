@@ -19,6 +19,6 @@ public class BaseDTO {
 	@GenericGenerator(name = "alphaPk", strategy = "native")
 
 	@Column(name = "ID", nullable = false, unique = true)
-	private long id;
+	private Long id;
 
 }

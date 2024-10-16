@@ -2,7 +2,11 @@ package co.alpha.common;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+
+import co.alpha.dto.UserDTO;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -52,14 +56,27 @@ public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
 		Root<T> qRoot = cq.from(getDTOClass());
 		TypedQuery<T> tq = entityManager.createQuery(cq);
 
-		/*
-		 * if (pageNo > 0) { tq.setFirstResult(pageNo * pageSize);
-		 * tq.setMaxResults(pageSize); }
-		 */
+		if (pageNo > 0) {
+			System.out.println("Pagination work BaseDAOImpl class...");
+			tq.setFirstResult(pageNo * pageSize);
+			tq.setMaxResults(pageSize);
 
+		}
 		List<T> list = tq.getResultList();
-
 		return list;
+	}
+
+	@Override
+	public T findByRollNo(Long rollNo) {
+		try {
+			String jpql = "SELECT u FROM UserDTO u WHERE u.rollNo = :rollNo"; // Using UserDTO here
+			return (T) entityManager.createQuery(jpql, UserDTO.class) // Specify UserDTO.class for type safety
+					.setParameter("rollNo", rollNo).getSingleResult();
+		} catch (NoResultException e) {
+			// Handle the case where no result is found
+			return null; // or throw your custom exception
+		}
+
 	}
 
 }

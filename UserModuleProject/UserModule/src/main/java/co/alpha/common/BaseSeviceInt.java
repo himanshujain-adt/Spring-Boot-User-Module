@@ -16,4 +16,6 @@ public interface BaseSeviceInt<T extends BaseDTO> {
 
 	public List search(T dto, int pageNo, int pageSize);
 
+	public T findByRollNo(Long rollNo);
+
 }

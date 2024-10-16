@@ -9,5 +9,6 @@ public interface BaseDAOInt <T extends BaseDTO>{
 	public void delete(T dto);
 	public T findByPk(Long pk);
 	public List search(T dto,int pageNo,int pageSize);
+	public T findByRollNo(Long rollNo);
 
 }

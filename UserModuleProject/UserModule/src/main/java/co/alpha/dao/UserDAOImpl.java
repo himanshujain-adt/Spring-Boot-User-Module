@@ -13,5 +13,7 @@ public class UserDAOImpl extends BaseDAOImpl<UserDTO> implements UserDAOInt {
 		// TODO Auto-generated method stub
 		return UserDTO.class;
 	}
+	
+	
 
 }
